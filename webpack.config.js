@@ -20,11 +20,11 @@ var config = {
         publicPath: '/build/'
     },
     module: {
-        preLoaders: [{
-            test: /\.js(x)?$/,
-            loader: 'eslint',
-            exclude: nodeModulesPath
-        }],
+        // preLoaders: [{
+        //     test: /\.js(x)?$/,
+        //     loader: 'eslint',
+        //     exclude: nodeModulesPath
+        // }],
         loaders: [{
             test: /\.js(x)?$/,
             loader: 'babel',

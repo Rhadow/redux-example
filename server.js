@@ -18,6 +18,7 @@ compiler.plugin('done', function() {
 var bundler = new WebpackDevServer(compiler, {
     contentBase: './src',
     publicPath: webpackConfig.output.publicPath,
+    historyApiFallback: true,
     hot: true,
     quiet: false,
     noInfo: true,
