@@ -3,19 +3,26 @@ import React, { Component, PropTypes } from 'react';
 
 class WeatherFetcher extends Component {
 	static propTypes = {
-		getWeatherData: PropTypes.func.isRequired
+		actions: PropTypes.object.isRequired
 	}
-	onSendHandler(e) {
+	onFakeRequestSentHandler(e) {
 		e.preventDefault();
 		let city = React.findDOMNode(this.refs.city).value;
-		this.props.getWeatherData(city);
+		this.props.actions.getFakeWeatherData(city);
+		React.findDOMNode(this.refs.city).value = '';
+	}
+	onRealRequestSentHandler(e) {
+		e.preventDefault();
+		let city = React.findDOMNode(this.refs.city).value;
+		this.props.actions.getWeatherData(city);
 		React.findDOMNode(this.refs.city).value = '';
 	}
 	render() {
 		return (
 			<div>
 			    Please enter a city: <input ref="city"/>
-			    <a onClick={this.onSendHandler.bind(this)}>Send</a>
+			    <a onClick={this.onFakeRequestSentHandler.bind(this)}>Get fake weather data</a>
+			    <a onClick={this.onRealRequestSentHandler.bind(this)}>Get real weather data</a>
 			</div>
 		);
 	}

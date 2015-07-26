@@ -18,7 +18,8 @@
   "homepage": "https://github.com/Rhadow/redux-example",
   "dependencies": {
     "react": "^0.13.3",
-    "redux": "^0.12.0"
+    "redux": "^0.12.0",
+    "superagent": "^1.2.0"
   },
   "devDependencies": {
     "babel-core": "^5.8.3",
