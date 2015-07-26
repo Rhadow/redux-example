@@ -21,8 +21,16 @@ class WeatherFetcher extends Component {
 		return (
 			<div>
 			    Please enter a city: <input ref="city"/>
-			    <a onClick={this.onFakeRequestSentHandler.bind(this)}>Get fake weather data</a>
-			    <a onClick={this.onRealRequestSentHandler.bind(this)}>Get real weather data</a>
+			    <a
+			        className="btn"
+			        onClick={this.onFakeRequestSentHandler.bind(this)}>
+			        Get fake weather data
+			    </a>
+			    <a
+			        className="btn"
+			        onClick={this.onRealRequestSentHandler.bind(this)}>
+			        Get real weather data
+			    </a>
 			</div>
 		);
 	}

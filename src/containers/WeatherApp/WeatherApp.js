@@ -1,25 +1,29 @@
 import React, { Component } from 'react';
 import WeatherDisplayer from '../../components/WeatherDisplayer/WeatherDisplayer';
 import WeatherFetcher from '../../components/WeatherFetcher/WeatherFetcher';
+import WeatherMap from '../../components/WeatherMap/WeatherMap';
 import { bindActionCreators } from 'redux';
 import { Connector } from 'redux/react';
 import * as weatherActions from '../../actions/weatherActions';
 
 class WeatherApp extends Component {
-	renderChild({ weather, dispatch }) {
+	renderChild({ info, mapOptions, dispatch }) {
 		const actions = bindActionCreators(weatherActions, dispatch);
 		return (
 			<div>
-			    <WeatherFetcher actions={actions}/>
+			    <WeatherFetcher actions={actions} />
 			    <WeatherDisplayer
-			        city={weather.city}
-			        temp={weather.temp} />
+			        city={info.city}
+			        temp={info.temp} />
+			    <WeatherMap
+			        mapOptions={mapOptions}
+			        actions={actions} />
 			</div>
 		);
 	}
 	render() {
 		return (
-			<Connector select={state => { return state.weather }}>
+			<Connector select={state => { return state.weatherData }}>
 			    {this.renderChild}
 			</Connector>
 		);
