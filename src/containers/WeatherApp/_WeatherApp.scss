@@ -1,0 +1,19 @@
+.weather-app {
+	position: relative;
+    font-family: sans-serif;
+    color: #505050;
+	.map-wrapper {
+		display:inline-block;
+		width: 60%;
+		height: 100%;
+	}
+	.control-panel {
+		position: absolute;
+		top: 0;
+		display:inline-block;
+		box-sizing: border-box;
+		padding: 0 20px;
+		width: 40%;
+		height: 100%;
+	}
+}

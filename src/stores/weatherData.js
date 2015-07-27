@@ -43,6 +43,13 @@ export default function weatherReducer(state = initialState, action) {
 		case GET_WEATHER_DATA_SUCCESS:
 		    return {
 		    	...state,
+		    	mapOptions: {
+					center: {
+						lat: action.data.coord.lat,
+						lng: action.data.coord.lon
+					},
+			        zoom: 8
+				},
 		    	info: {
 		    		city: action.data.name,
 					temp: action.data.main.temp,

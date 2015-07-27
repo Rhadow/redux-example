@@ -17,7 +17,7 @@ class WeatherDisplayer extends Component {
 	_renderContent() {
 		const {city, temp, imageId, isLoading, hasError} = this.props;
 		let resultHtml = (
-			<div className="weather-displayer">
+			<div>
 			    <div className="display-title">Loading...</div>
 			    <div className="display-content">
 				    <div className="sk-fading-circle">
@@ -40,7 +40,7 @@ class WeatherDisplayer extends Component {
 		);
 		if (!isLoading && !hasError) {
 			resultHtml = (
-				<div className="weather-displayer">
+				<div>
 				    <div className="display-title">{city}</div>
 				    <div className="display-content">
 				        <div className={`weather-icon i${imageId}`}></div>
@@ -51,7 +51,7 @@ class WeatherDisplayer extends Component {
 		}
 		if (!isLoading && hasError) {
 			resultHtml = (
-				<div className="weather-displayer">
+				<div>
 				    <div className="display-title">Oops...</div>
 				    <div className="display-content">
 				        <div className="detail-content">City Name is not found.</div>
@@ -65,7 +65,7 @@ class WeatherDisplayer extends Component {
 	render() {
 		let contentHtml = this._renderContent();
 		return (
-			<div>
+			<div className="weather-displayer">
 			    {contentHtml}
 			</div>
 		);

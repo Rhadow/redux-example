@@ -8,21 +8,26 @@ class WeatherFetcher extends Component {
 	componentDidMount() {
 		this.props.actions.getWeatherData('victoria');
 	}
-	onWeatherRequestSentHandler(e) {
+	_onWeatherRequestSentHandler(e) {
 		e.preventDefault();
 		let city = React.findDOMNode(this.refs.city).value;
 		this.props.actions.getWeatherData(city);
 		React.findDOMNode(this.refs.city).value = '';
 	}
+	_onKeyUpHandler(e) {
+		if (e.keyCode === 13) {
+			this._onWeatherRequestSentHandler(e);
+		}
+	}
 	render() {
 		return (
-			<div>
-			    <h3>Please enter a location or right click on the map to see the weather there: </h3>
-			    City Name: <input ref="city"/>
+			<div className="weather-fetcher">
+			    <h3 className="instruction">Please enter a location or click on the map to see the weather there: </h3>
+			    City Name: <input ref="city" onKeyUp={this._onKeyUpHandler.bind(this)}/>
 			    <a
 			        className="btn"
-			        onClick={this.onWeatherRequestSentHandler.bind(this)}>
-			        Get weather data
+			        onClick={this._onWeatherRequestSentHandler.bind(this)}>
+			        Search
 			    </a>
 			</div>
 		);
