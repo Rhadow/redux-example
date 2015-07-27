@@ -5,13 +5,10 @@ class WeatherFetcher extends Component {
 	static propTypes = {
 		actions: PropTypes.object.isRequired
 	}
-	onFakeRequestSentHandler(e) {
-		e.preventDefault();
-		let city = React.findDOMNode(this.refs.city).value;
-		this.props.actions.getFakeWeatherData(city);
-		React.findDOMNode(this.refs.city).value = '';
+	componentDidMount() {
+		this.props.actions.getWeatherData('victoria');
 	}
-	onRealRequestSentHandler(e) {
+	onWeatherRequestSentHandler(e) {
 		e.preventDefault();
 		let city = React.findDOMNode(this.refs.city).value;
 		this.props.actions.getWeatherData(city);
@@ -20,16 +17,12 @@ class WeatherFetcher extends Component {
 	render() {
 		return (
 			<div>
-			    Please enter a city: <input ref="city"/>
+			    <h3>Please enter a location or right click on the map to see the weather there: </h3>
+			    City Name: <input ref="city"/>
 			    <a
 			        className="btn"
-			        onClick={this.onFakeRequestSentHandler.bind(this)}>
-			        Get fake weather data
-			    </a>
-			    <a
-			        className="btn"
-			        onClick={this.onRealRequestSentHandler.bind(this)}>
-			        Get real weather data
+			        onClick={this.onWeatherRequestSentHandler.bind(this)}>
+			        Get weather data
 			    </a>
 			</div>
 		);

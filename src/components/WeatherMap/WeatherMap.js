@@ -9,6 +9,13 @@ class WeatherMap extends Component {
 	componentDidMount() {
         const { mapOptions } = this.props;
         let map = new google.maps.Map(findDOMNode(this.refs.weatherMap), mapOptions);
+        google.maps.event.addListener(map, "rightclick", this._onMapRightClicked.bind(this));
+	}
+	_onMapRightClicked(event) {
+		const { actions } = this.props;
+		let lat = event.latLng.lat(),
+	        lng = event.latLng.lng();
+	    actions.getWeatherData(lat, lng);
 	}
 	render() {
 		return (

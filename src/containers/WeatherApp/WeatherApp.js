@@ -7,7 +7,7 @@ import { Connector } from 'redux/react';
 import * as weatherActions from '../../actions/weatherActions';
 
 class WeatherApp extends Component {
-	renderChild({ info, mapOptions, isLoading, dispatch }) {
+	renderChild({ info, mapOptions, isLoading, hasError, dispatch }) {
 		const actions = bindActionCreators(weatherActions, dispatch);
 		return (
 			<div>
@@ -16,7 +16,8 @@ class WeatherApp extends Component {
 			        city={info.city}
 			        temp={info.temp}
 			        imageId={info.imageId}
-			        loading={isLoading} />
+			        isLoading={isLoading}
+			        hasError={hasError} />
 			    <WeatherMap
 			        mapOptions={mapOptions}
 			        actions={actions} />
