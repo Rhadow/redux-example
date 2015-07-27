@@ -1,2 +1,2 @@
 # redux-example
-An simple crud example using redux
+A small weather app using redux, google map api and open weather api.

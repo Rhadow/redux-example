@@ -25,25 +25,21 @@ export function getWeatherData(...queryConditions) {
 		default:
 		    url = '';
 	}
-	return dispatch => {
-		if (url) {
-			dispatch({
-				type: GET_WEATHER_DATA
-			});
-			request(url, (err, res) => {
-				if (err || res.body.cod !== 200) {
-					dispatch({
-						type: GET_WEATHER_DATA_FAIL
-					});
-				} else {
-					dispatch({
-						type: GET_WEATHER_DATA_SUCCESS,
-						data: res.body
-					});
-				}
-			});
-		} else {
-			dispatch(getFakeWeatherData());
-		}
-	};
+	let promise = new Promise((resolve, reject) => {
+		request(url, (err, res) => {
+			if (err || res.body.cod !== 200) {
+				reject(err);
+			} else {
+				resolve(res.body);
+			}
+		});
+	});
+	if (url) {
+		return {
+			types: [GET_WEATHER_DATA, GET_WEATHER_DATA_SUCCESS, GET_WEATHER_DATA_FAIL],
+			promise: promise
+		};
+	} else {
+		return getFakeWeatherData();
+	}
 }

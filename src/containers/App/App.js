@@ -2,17 +2,19 @@ import './_App';
 
 import React, { Component } from 'react';
 import WeatherApp from '../WeatherApp/WeatherApp';
-import { createRedux } from 'redux';
-import { Provider } from 'redux/react';
-import * as stores from '../../stores';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import * as reducers from '../../reducers';
+import { promiseMiddleware } from '../../middlewares';
 
-const redux = createRedux(stores);
-
+const reducer = combineReducers(reducers);
+const finalCreateStore = applyMiddleware(promiseMiddleware)(createStore);
+const store = finalCreateStore(reducer);
 
 class App extends Component {
 	render() {
 		return (
-			<Provider redux={redux}>
+			<Provider store={store}>
 			    {() => <WeatherApp />}
 			</Provider>
 		);

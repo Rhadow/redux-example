@@ -4,7 +4,7 @@ import WeatherDisplayer from '../../components/WeatherDisplayer/WeatherDisplayer
 import WeatherFetcher from '../../components/WeatherFetcher/WeatherFetcher';
 import WeatherMap from '../../components/WeatherMap/WeatherMap';
 import { bindActionCreators } from 'redux';
-import { Connector } from 'redux/react';
+import { Connector } from 'react-redux';
 import * as weatherActions from '../../actions/weatherActions';
 
 class WeatherApp extends Component {
