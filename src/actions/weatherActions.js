@@ -13,14 +13,15 @@ export function getFakeWeatherData(city) {
 
 export function getWeatherData(city) {
 	return dispatch => {
-		request(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`, (err, res) => {
-			dispatch({
-				type: GET_WEATHER_DATA,
-				data: {
-					city: res.body.name,
-					temp: res.body.main.temp
-				}
+		if (city) {
+			request(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`, (err, res) => {
+				dispatch({
+					type: GET_WEATHER_DATA,
+					data: res.body
+				});
 			});
-		});
+		} else {
+			dispatch(getFakeWeatherData());
+		}
 	};
 }

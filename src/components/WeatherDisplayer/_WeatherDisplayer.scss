@@ -1,0 +1,80 @@
+.weather-displayer {
+	margin: 30px 0;
+	font-family: sans-serif;
+	color: #505050;
+
+	.display-title {
+		margin-top: 20px;
+		margin-bottom: 10px;
+		font-size: 24px;
+	}
+	.display-content {
+		margin-top: 20px;
+		margin-bottom: 10px;
+		.weather-icon {
+			display: inline-block;
+			width: 50px;
+			height: 50px;
+			vertical-align: middle;
+		}
+		.temperature {
+			display: inline-block;
+			font-size: 30px;
+			vertical-align: middle;
+		}
+		.i01d {
+			background: url('../../assets/images/01d.png') 0 0 no-repeat;
+		}
+		.i01n {
+			background: url('../../assets/images/01n.png') 0 0 no-repeat;
+		}
+		.i02d {
+			background: url('../../assets/images/02d.png') 0 0 no-repeat;
+		}
+		.i02n {
+			background: url('../../assets/images/02n.png') 0 0 no-repeat;
+		}
+		.i03d {
+			background: url('../../assets/images/03d.png') 0 0 no-repeat;
+		}
+		.i03n {
+			background: url('../../assets/images/03n.png') 0 0 no-repeat;
+		}
+		.i04d {
+			background: url('../../assets/images/04d.png') 0 0 no-repeat;
+		}
+		.i04n {
+			background: url('../../assets/images/04n.png') 0 0 no-repeat;
+		}
+		.i09d {
+			background: url('../../assets/images/09d.png') 0 0 no-repeat;
+		}
+		.i09n {
+			background: url('../../assets/images/09n.png') 0 0 no-repeat;
+		}
+		.i10d {
+			background: url('../../assets/images/10d.png') 0 0 no-repeat;
+		}
+		.i10n {
+			background: url('../../assets/images/10n.png') 0 0 no-repeat;
+		}
+		.i11d {
+			background: url('../../assets/images/11d.png') 0 0 no-repeat;
+		}
+		.i11n {
+			background: url('../../assets/images/11n.png') 0 0 no-repeat;
+		}
+		.i13d {
+			background: url('../../assets/images/13d.png') 0 0 no-repeat;
+		}
+		.i13n {
+			background: url('../../assets/images/13n.png') 0 0 no-repeat;
+		}
+		.i50d {
+			background: url('../../assets/images/50d.png') 0 0 no-repeat;
+		}
+		.i50n {
+			background: url('../../assets/images/50n.png') 0 0 no-repeat;
+		}
+	}
+}

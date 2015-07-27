@@ -13,8 +13,10 @@ let initialState = {
 	},
 	info: {
 		city: 'Taipei',
-		temp: 29
-	}
+		temp: 29,
+		imageId: '01d'
+	},
+	loading: false
 };
 
 export default function weatherReducer(state = initialState, action) {
@@ -23,16 +25,18 @@ export default function weatherReducer(state = initialState, action) {
 		    return {
 		    	...state,
 		    	info: {
-		    		city: action.data.city,
-			    	temp: Math.floor(Math.random() * 35)
+		    		city: action.data.city || ['Taipei', 'Vancouver', 'California'][Math.floor(Math.random() * 3)],
+			    	temp: Math.floor(Math.random() * 35),
+			    	imageId: ['01d', '02d', '03d'][Math.floor(Math.random() * 3)]
 		    	}
 		    }
 		case GET_WEATHER_DATA:
 		    return {
 		    	...state,
 		    	info: {
-		    		city: action.data.city,
-			    	temp: action.data.temp
+		    		city: action.data.name,
+					temp: action.data.main.temp,
+					imageId: action.data.weather[0].icon
 		    	}
 		    }
 		default:
