@@ -1,0 +1,1 @@
+export const OPEN_WEATHER_MAP_TOKEN = '2be4506e3d8269fca33f5496ffdde446';

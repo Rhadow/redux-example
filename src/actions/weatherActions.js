@@ -5,6 +5,7 @@ import {
     GET_WEATHER_DATA_SUCCESS,
     GET_WEATHER_DATA_FAIL
 } from '../constants/actionTypes';
+import { OPEN_WEATHER_MAP_TOKEN } from '../constants/tokens';
 
 export function getFakeWeatherData(city) {
 	return {
@@ -17,10 +18,10 @@ export function getWeatherData(...queryConditions) {
 	let url = 'http://api.openweathermap.org/data/2.5/weather?units=metric';
 	switch (queryConditions.length) {
 		case 1:
-		    url += `&q=${queryConditions[0]}`;
+		    url += `&q=${queryConditions[0]}&appid=${OPEN_WEATHER_MAP_TOKEN}`;
 		    break;
 		case 2:
-		    url += `&lat=${queryConditions[0]}&lon=${queryConditions[1]}`;
+		    url += `&lat=${queryConditions[0]}&lon=${queryConditions[1]}&appid=${OPEN_WEATHER_MAP_TOKEN}`;
 		    break;
 		default:
 		    url = '';
